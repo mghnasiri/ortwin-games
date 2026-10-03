@@ -1,0 +1,283 @@
+/* Ortwin Games: one dark look, from Sanalune's night palette. */
+
+:root {
+  --night: #0A1422;
+  --deep: #0F1E33;
+  --surface: #13233A;
+  --glow: #1B3152;
+  --ink: #EAF6FA;
+  --soft: #B4C7D3;
+  --mint: #7CF2C4;
+  --mint-light: #B4F8DD;
+  --cyan: #37D6E6;
+  --rule: rgba(124, 242, 196, 0.18);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+body {
+  margin: 0;
+  background-color: var(--night);
+  background-image: radial-gradient(ellipse 90% 420px at 50% 0, var(--glow) 0%, rgba(15, 30, 51, 0.55) 50%, rgba(10, 20, 34, 0) 100%);
+  background-repeat: no-repeat;
+  color: var(--ink);
+  font: 400 1.0625rem/1.65 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+[id] { scroll-margin-top: 16px; }
+
+.wrap {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media (min-width: 600px) {
+  .wrap { padding: 0 24px; }
+  .card { padding: 20px; }
+}
+
+/* Links and focus */
+
+a {
+  color: var(--mint);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+
+a:hover { color: var(--mint-light); }
+
+:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Top bar */
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 0;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.brand:hover { color: var(--ink); }
+
+.brand svg {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+}
+
+.bar-end { justify-content: flex-end; }
+
+.pill {
+  flex: none;
+  display: inline-block;
+  padding: 4px 14px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  text-decoration: none;
+}
+
+.pill:hover { border-color: var(--mint); }
+
+/* Hero: the room on its glowing path, as in the icon */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 40px 0 8px;
+  text-align: center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 96px;
+  height: 2px;
+  background: var(--cyan);
+  box-shadow: 0 0 12px 1px rgba(55, 214, 230, 0.55);
+  opacity: 0.75;
+}
+
+.hero .mark {
+  position: relative;
+  display: block;
+  width: 112px;
+  height: 112px;
+  margin: 0 auto;
+  border-radius: 26px;
+  box-shadow: 0 0 0 1px rgba(124, 242, 196, 0.25), 0 14px 40px rgba(0, 0, 0, 0.45), 0 0 56px rgba(124, 242, 196, 0.14);
+}
+
+.hero h1 { margin: 28px 0 0; }
+
+.alt {
+  margin: 2px 0 0;
+  color: var(--soft);
+  font-size: 1.0625rem;
+}
+
+.tagline {
+  margin: 14px 0 0;
+  color: var(--mint);
+  font-size: 1.125rem;
+}
+
+/* Type */
+
+h1 {
+  font-size: clamp(2rem, 7vw, 2.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+  margin: 24px 0 8px;
+}
+
+h2 {
+  font-size: 1.375rem;
+  line-height: 1.3;
+  font-weight: 650;
+  margin: 2.2em 0 0.6em;
+}
+
+h2::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin: 0 0.6em 0.15em 0;
+  border-radius: 50%;
+  background: var(--mint);
+  box-shadow: 0 0 8px rgba(124, 242, 196, 0.7);
+  vertical-align: middle;
+}
+
+h2.title {
+  font-size: clamp(1.75rem, 6vw, 2.25rem);
+  line-height: 1.15;
+  font-weight: 700;
+  margin: 0;
+}
+
+h2.title::before { content: none; }
+
+h3 {
+  font-size: 1.0625rem;
+  font-weight: 650;
+  margin: 1.6em 0 0.4em;
+}
+
+p, li { overflow-wrap: break-word; }
+
+p { margin: 0 0 1em; }
+
+ul, ol { padding-left: 1.3em; margin: 0 0 1em; }
+
+li + li { margin-top: 0.35em; }
+
+strong { font-weight: 650; }
+
+code {
+  font: 0.9em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  background: var(--surface);
+  padding: 0.1em 0.35em;
+  border-radius: 6px;
+  overflow-wrap: anywhere;
+}
+
+.meta {
+  color: var(--soft);
+  font-size: 0.9375rem;
+}
+
+/* Cards */
+
+.card {
+  margin: 0 0 1em;
+  padding: 16px;
+  background: linear-gradient(180deg, var(--surface), var(--deep));
+  border: 1px solid var(--rule);
+  border-radius: 16px;
+}
+
+.card > :last-child { margin-bottom: 0; }
+
+.card h2 { margin-top: 0; }
+
+.game {
+  border: 2px solid rgba(124, 242, 196, 0.55);
+  box-shadow: 0 0 28px rgba(124, 242, 196, 0.08);
+}
+
+.kicker {
+  margin: -0.2em 0 0.9em;
+  color: var(--cyan);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.short { border-left: 3px solid var(--mint); }
+
+/* Contents list on the policy */
+
+.toc h2 { font-size: 1.0625rem; }
+
+.toc ol {
+  columns: 2 16rem;
+  column-gap: 2rem;
+  margin: 0;
+}
+
+.toc li {
+  break-inside: avoid;
+  margin: 0 0 0.35em;
+}
+
+/* The path between the two languages */
+
+.flowline {
+  height: 2px;
+  margin: 64px 0;
+  border: 0;
+  background: var(--cyan);
+  box-shadow: 0 0 12px 1px rgba(55, 214, 230, 0.5);
+  opacity: 0.7;
+}
+
+/* Footer */
+
+footer {
+  margin-top: 64px;
+  padding: 24px 0 40px;
+  border-top: 1px solid var(--rule);
+  color: var(--soft);
+  font-size: 0.9375rem;
+}
+
+footer p { margin: 0 0 0.4em; }
